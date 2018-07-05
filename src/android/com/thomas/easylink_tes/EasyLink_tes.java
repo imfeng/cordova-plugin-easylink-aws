@@ -66,7 +66,7 @@ public class EasyLink_tes extends CordovaPlugin{
 
         //停止搜索
         if(action.equals("stopSearch")){
-            elp2p.stopEasyLink(new EasyLinkCallBack() {
+            this.ctxelp2p.stopEasyLink(new EasyLinkCallBack() {
                 @Override
                 public void onSuccess(int code, String message) {
                     callbackContext.success(message);
