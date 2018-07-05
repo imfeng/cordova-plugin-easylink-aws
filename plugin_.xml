@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-easylink-aws" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>cordova-plugin-easylink-aws</name>
-    <js-module name="easyLink" src="www/cordova-plugin-easylink-aws.js">
+<plugin id="cordova-plugin-easylink" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>cordova-plugin-easylink</name>
+    <js-module name="easyLink" src="www/cordova-plugin-easylink.js">
         <clobbers target="easyLink" />
     </js-module>
     <platform name = "android">
 		<config-file target="res/xml/config.xml" parent="/*">
-            <feature name="EasyLink_tes" >
-                <param name="android-package" value="com.thomas.easylink_tes.EasyLink_tes"/>
+            <feature name="EasyLink" >
+                <param name="android-package" value="com.thomas.easylink.EasyLink"/>
             </feature>
         </config-file>
         <config-file target="AndroidManifest.xml" parent="/*">  
@@ -19,9 +19,9 @@
         </config-file> 
         
 
-        <source-file src="src/android/libs/easylinkv3-0.2.6.jar" target-dir="libs"/>
-        <source-file src="src/android/com/thomas/easylink_tes/EasyLink_tes.java" target-dir="src/com/thomas/easylink_tes"/>
-	    <source-file src="src/android/com/thomas/easylink_tes/UDPServer.java" target-dir="src/com/thomas/easylink_tes"/>
+        <source-file src="src/android/libs/easylink_only.jar" target-dir="libs"/>
+        <source-file src="src/android/com/thomas/easylink/EasyLink.java" target-dir="src/com/thomas/easylink"/>
+	<source-file src="src/android/com/thomas/easylink/UDPServer.java" target-dir="src/com/thomas/easylink"/>
     </platform>
 
     <platform name = "ios">
