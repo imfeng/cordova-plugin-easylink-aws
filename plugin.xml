@@ -21,7 +21,6 @@
 
         <source-file src="src/android/libs/easylinkv3-0.2.6.jar" target-dir="libs"/>
         <source-file src="src/android/com/thomas/easylink_tes/EasyLink_tes.java" target-dir="src/com/thomas/easylink_tes"/>
-	    <source-file src="src/android/com/thomas/easylink_tes/UDPServer.java" target-dir="src/com/thomas/easylink_tes"/>
     </platform>
 
     <platform name = "ios">
