@@ -7,12 +7,12 @@
 //
 
 #import <Cordova/CDV.h>
-#import "EASYLINK.h"//加easylink头文件
+#import "EasyLinkSDK/EasyLink/Common/EasyLink.h"//加easylink头文件
 
 @interface CDVEasyLink : CDVPlugin
 {
     EASYLINK *m_easylink_config;
-    AsyncUdpSocket *udpSocket;
+    ELAsyncUdpSocket *udpSocket;
     CDVInvokedUrlCommand *m_command;
 }
 - (void)getWifiSSid:(CDVInvokedUrlCommand*)command;

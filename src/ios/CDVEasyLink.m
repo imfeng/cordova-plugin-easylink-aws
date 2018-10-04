@@ -38,14 +38,17 @@
     }
     [m_easylink_config stopTransmitting];
     NSData* ssidData = [ssidString dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *userInfo = @"";
+    const char *temp = [userInfo cStringUsingEncoding:NSUTF8StringEncoding];
     
     [wlanConfig setObject:ssidData forKey:KEY_SSID];
     [wlanConfig setObject:passwordString forKey:KEY_PASSWORD];
     [wlanConfig setObject:[NSNumber numberWithBool:YES] forKey:KEY_DHCP];
-    [m_easylink_config prepareEasyLink_withFTC:wlanConfig info:nil mode:EASYLINK_V2_PLUS];
+    [m_easylink_config prepareEasyLink:wlanConfig info:[NSData dataWithBytes:temp length:strlen(temp)] mode:EASYLINK_AWS];
+    // [m_easylink_config prepareEasyLinkAWS:ssidData password:passwordData ];
     [m_easylink_config transmitSettings];
 
-    udpSocket = [[AsyncUdpSocket alloc] initWithDelegate:self];
+    udpSocket = [[ELAsyncUdpSocket alloc] initWithDelegate:self];
     NSError *err = nil;
     [udpSocket enableBroadcast:YES error:&err];
     
@@ -78,6 +81,12 @@
 
 //注意：有些庆科模块的固件代码有回连机制，配置成功设备会返回数据给app，新版本设备配上网络以后是不回连的
 #pragma mark - EasyLink delegate -
+- (void)onFound:(NSNumber *)client withName:(NSString *)name mataData: (NSDictionary *)mataDataDict
+{
+    NSLog(@"New device found!");
+    CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"New device found!"];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:m_command.callbackId];
+}
 - (void)onFoundByFTC:(NSNumber *)ftcClientTag withConfiguration: (NSDictionary *)configDict
 {
     NSLog(@"New device found!");
@@ -102,7 +111,7 @@
 }
 
 //已接收到消息
-- (BOOL)onUdpSocket:(AsyncUdpSocket *)sock didReceiveData:(NSData *)data withTag:(long)tag fromHost:(NSString *)host port:(UInt16)port{
+- (BOOL)onUdpSocket:(ELAsyncUdpSocket *)sock didReceiveData:(NSData *)data withTag:(long)tag fromHost:(NSString *)host port:(UInt16)port{
    
     Byte *receiveByte = (Byte *)[data bytes];
     NSUInteger len = [data length];
@@ -185,19 +194,19 @@
 }
 
 //没有接受到消息
--(void)onUdpSocket:(AsyncUdpSocket *)sock didNotReceiveDataWithTag:(long)tag dueToError:(NSError *)error{
+-(void)onUdpSocket:(ELAsyncUdpSocket *)sock didNotReceiveDataWithTag:(long)tag dueToError:(NSError *)error{
     
 }
 //没有发送出消息
--(void)onUdpSocket:(AsyncUdpSocket *)sock didNotSendDataWithTag:(long)tag dueToError:(NSError *)error{
+-(void)onUdpSocket:(ELAsyncUdpSocket *)sock didNotSendDataWithTag:(long)tag dueToError:(NSError *)error{
     
 }
 //已发送出消息
--(void)onUdpSocket:(AsyncUdpSocket *)sock didSendDataWithTag:(long)tag{
+-(void)onUdpSocket:(ELAsyncUdpSocket *)sock didSendDataWithTag:(long)tag{
     
 }
 //断开连接
--(void)onUdpSocketDidClose:(AsyncUdpSocket *)sock{
+-(void)onUdpSocketDidClose:(ELAsyncUdpSocket *)sock{
     
 }
 

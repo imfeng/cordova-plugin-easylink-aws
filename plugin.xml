@@ -17,9 +17,8 @@
             <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
             <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />  
         </config-file> 
-        
 
-        <source-file src="src/android/libs/easylinkv3-0.2.6.jar" target-dir="libs"/>
+        <source-file src="src/android/libs/easylink_aws.jar" target-dir="libs"/>
         <source-file src="src/android/com/thomas/easylink_tes/EasyLink_tes.java" target-dir="src/com/thomas/easylink_tes"/>
     </platform>
 
@@ -32,9 +31,19 @@
 
         <header-file src="src/ios/CDVEasyLink.h" />
         <source-file src="src/ios/CDVEasyLink.m" />
-        <source-file src="src/ios/EasyLinkSDK" />
-
-	    
+        <source-file src="src/ios/EasyLinkSDK/" />
+        <header-file src="src/ios/EasyLinkSDK/EasyLink/Common/EasyLink.h" />
+        <source-file src="src/ios/EasyLinkSDK/EasyLink/Common/EasyLink.m" />
+        
+        <header-file src="src/ios/EasyLinkSDK/EasyLink/ELCocoaAsyncSocket/ELAsyncUdpSocket.h" />
+        <source-file src="src/ios/EasyLinkSDK/EasyLink/ELCocoaAsyncSocket/ELAsyncUdpSocket.m" />
+        <header-file src="src/ios/EasyLinkSDK/EasyLink/ELCocoaAsyncSocket/ELAsyncUdpSocket.h" />
+        <source-file src="src/ios/EasyLinkSDK/EasyLink/ELCocoaAsyncSocket/ELAsyncUdpSocket.m" />
+        
+        <header-file src="src/ios/EasyLinkSDK/EasyLink/ELReachability/ELReachability.h" />
+        <source-file src="src/ios/EasyLinkSDK/EasyLink/ELReachability/ELReachability.m" />
+        
+        <framework src="CFNetwork.framework" />
 	    <framework src="AssetsLibrary.framework" />
         <framework src="AddressBook.framework" />
         <framework src="AudioToolbox.framework" />

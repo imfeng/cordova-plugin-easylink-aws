@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-easylink-aws",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "MXCHIP easylink AWS",
   "main": "./www/cordova-plugin-easylink-aws.js",
   "scripts": {
