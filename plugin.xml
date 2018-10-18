@@ -35,8 +35,8 @@
         <header-file src="src/ios/EasyLinkSDK/EasyLink/Common/EasyLink.h" />
         <source-file src="src/ios/EasyLinkSDK/EasyLink/Common/EasyLink.m" />
         
-        <header-file src="src/ios/EasyLinkSDK/EasyLink/ELCocoaAsyncSocket/ELAsyncUdpSocket.h" />
-        <source-file src="src/ios/EasyLinkSDK/EasyLink/ELCocoaAsyncSocket/ELAsyncUdpSocket.m" />
+        <header-file src="src/ios/EasyLinkSDK/EasyLink/ELCocoaAsyncSocket/ELAsyncSocket.h" />
+        <source-file src="src/ios/EasyLinkSDK/EasyLink/ELCocoaAsyncSocket/ELAsyncSocket.m" />
         <header-file src="src/ios/EasyLinkSDK/EasyLink/ELCocoaAsyncSocket/ELAsyncUdpSocket.h" />
         <source-file src="src/ios/EasyLinkSDK/EasyLink/ELCocoaAsyncSocket/ELAsyncUdpSocket.m" />
         
