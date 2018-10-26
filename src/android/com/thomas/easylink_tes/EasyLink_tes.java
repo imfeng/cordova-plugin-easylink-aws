@@ -91,14 +91,14 @@ public class EasyLink_tes extends CordovaPlugin{
         /** OLD */
         String wifiSSid = args.getString(0).trim();
         String wifiPsw = args.getString(1).trim();
+        if (wifiPsw==null||wifiPsw.isEmpty()) {
+            _wifiPsw = "";
+        } else {}
 
         if (wifiSSid==null||wifiSSid.isEmpty()){
             _cbc.error("NO SSID");
 
-        }else if (wifiPsw==null||wifiPsw.isEmpty()) {
-            _cbc.error("NO PASSWORD");
         } else {
-            /** 0.2.6 */
             EasyLinkParams elp = new EasyLinkParams();
             elp.ssid = wifiSSid;
             elp.password = wifiPsw;

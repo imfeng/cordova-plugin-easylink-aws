@@ -31,17 +31,6 @@
 
         <header-file src="src/ios/CDVEasyLink.h" />
         <source-file src="src/ios/CDVEasyLink.m" />
-        <source-file src="src/ios/EasyLinkSDK/" />
-        <header-file src="src/ios/EasyLinkSDK/EasyLink/Common/EasyLink.h" />
-        <source-file src="src/ios/EasyLinkSDK/EasyLink/Common/EasyLink.m" />
-        
-        <header-file src="src/ios/EasyLinkSDK/EasyLink/ELCocoaAsyncSocket/ELAsyncSocket.h" />
-        <source-file src="src/ios/EasyLinkSDK/EasyLink/ELCocoaAsyncSocket/ELAsyncSocket.m" />
-        <header-file src="src/ios/EasyLinkSDK/EasyLink/ELCocoaAsyncSocket/ELAsyncUdpSocket.h" />
-        <source-file src="src/ios/EasyLinkSDK/EasyLink/ELCocoaAsyncSocket/ELAsyncUdpSocket.m" />
-        
-        <header-file src="src/ios/EasyLinkSDK/EasyLink/ELReachability/ELReachability.h" />
-        <source-file src="src/ios/EasyLinkSDK/EasyLink/ELReachability/ELReachability.m" />
         
         <framework src="CFNetwork.framework" />
 	    <framework src="AssetsLibrary.framework" />
